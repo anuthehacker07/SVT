@@ -1,0 +1,150 @@
+<!DOCTYPE html> <!-- Keyword: DOCTYPE – Declares the document type and version of HTML -->
+<html lang="en"> <!-- Keyword: html – Root element of an HTML document with language set to English -->
+<head> <!-- Keyword: head – Container for metadata and linking scripts, styles, etc. -->
+    <meta charset="UTF-8"> <!-- Keyword: meta – Sets character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Keyword: viewport – Ensures responsive scaling on mobile devices -->
+    <title>SVT FORM</title> <!-- Keyword: title – Sets the title of the HTML page -->
+    <script> <!-- Keyword: script – Embeds JavaScript code for validation -->
+        
+     function validateForm() { // Keyword: function – Defines a JavaScript function named 'validateForm'
+            let name = document.getElementById('name').value; // Keywords: let, document.getElementById – Get input value for 'name'
+            let dressmodel = document.getElementById('dressmodel').value; // Keywords: let, document.getElementById – Get input value for 'ageGroup'
+            let email=document.getElementaryById('email').value;
+            let price = document.getElementById('price').value; // Keywords: let, document.getElementById – Get input value for 'email'
+            let mobile = document.getElementById('mobile').value; // Keywords: let, document.getElementById – Get input value for 'mobile'
+            let size=document.getElementById("size").value
+            let address = document.getElementById('address').value; 
+            // Keywords: let, document.getElementById – Get input value for 'address'
+            let dresstype = document.getElementById('dresstype').value; // Keywords: let, document.getElementById – Get input value for 'dress type'
+            if (name == "") { // Keyword: if – Checks if name is empty
+                alert("Please enter your name."); // Keyword: alert – Shows alert box
+                return false; // Keyword: return – Stops form submission
+            }
+
+            for (let i = 0; i < name.length; i++) { // Keywords: for, let – Loop through each character of name
+                if (!((name[i] >= 'A' && name[i] <= 'Z') || (name[i] >= 'a' && name[i] <= 'z') || name[i] === ' ')) {
+                    // Keywords: if, logical operators – Validate that characters are letters or space
+                    alert("Name must contain only letters and spaces."); // Keyword: alert
+                    return false; // Keyword: return
+                }
+            }
+
+            if (dressmodel == "") { // Keyword: if – Check if age group is empty
+                alert("Enter dress model."); // Keyword: alert
+                return false; // Keyword: return
+            }
+            
+            if(address==""){
+                alert("please enter the address.");
+                return false;
+            }
+
+            
+
+            if (email == "") { // Keyword: if – Check if email is empty
+                alert("Please enter your email address."); // Keyword: alert
+                return false; // Keyword: return
+            }
+
+            let atPos = email.indexOf('@'); // Keywords: let, indexOf – Get index of '@' in email
+            let dotPos = email.lastIndexOf('.'); // Keywords: let, lastIndexOf – Get index of last '.' in email
+
+            if (atPos < 1 || dotPos < atPos + 2 || dotPos + 2 >= email.length) {
+                // Keywords: if, logical operators – Validates email format structure
+                alert("Please enter a valid email address."); // Keyword: alert
+                return false; // Keyword: return
+            }
+            if (price == "") { // Keyword: if – Check if mobile is empty
+                alert("Please enter the valid price."); // Keyword: alert
+                return false; // Keyword: return
+            }
+            if(price<0||isNaN(price)){
+                alret("please enter a valid price.");
+                return false;
+            }
+            if(size==""){
+                alret("please enter a valid size.");
+                return false;
+
+            }
+            if(size%2==1){
+                alret("please enter proper size.");
+                return false;
+            }
+            if (mobile == "") { // Keyword: if – Check if mobile is empty
+                alert("Please enter your mobile number."); // Keyword: alert
+                return false; // Keyword: return
+            }
+            if (mobile.lenght != 10||isNaN(mobile)) {
+                alret("please enter a valid mobie no.");
+                return false;
+            }
+
+            alert("Form submitted successfully!"); // Keyword: alert
+            return true; // Keyword: return – Allow form to submit
+        }
+
+    </script> <!-- End of script block -->
+</head>
+
+<body> <!-- Keyword: body – Main content container for HTML document -->
+    <style>
+        div{
+            background-color:bisque;
+        }
+
+    </style>
+      <div class="navbar">
+    <a href="#" class="logo">Sri Veni Tailoring.com</a>
+    
+    <form onsubmit="return validateForm()"> <!-- Keyword: form, onsubmit – HTML form element that triggers validation -->
+        <h5>REGISTER FORM</h5> <!-- Keyword: h5 – HTML heading tag -->
+        <p>Welcome to this page😊</p>
+        <p>Enter your details below:</p> <!-- Keyword: p – Paragraph element for instructions -->
+        <!-- Name Input (only letters and spaces allowed) -->
+        <p><input type="text" id="name" placeholder="Enter name" /></p> <!-- Keywords: input, type="text", id, placeholder -->
+
+        
+
+        <!-- Email Input (valid email format) -->
+        <p><input type="email" id="email" placeholder="Enter email address" /></p> <!-- Keywords: input, type="email" -->
+        <p><input type="number" id="price" placeholder="Enter price"></p>
+        <p><input type="number" id="size" placeholder="Enter size"></p>
+        <p><input type="text" id="dress model" placeholder="Enter dress model:"></p>
+        <!-- Mobile Number Input (only 10-digit numbers allowed) -->
+        <p><input type="number" id="mobile" placeholder="Enter Mobile Number" /></p> <!-- Keywords: input, id -->
+        <p>choose dress type</p>
+<select>    
+            <option value="select">Select</option> <!-- Keywords: option, value – Default option -->
+            <option value="cotton">Cotton</option> <!-- Keywords: option, value – Option for cotton -->
+            <option value="silk">Silk</option> <!-- Keywords: option, value – Option for silk -->
+            <option value="woolen">Woolen</option> <!-- Keywords: option, value – Option for woolen -->
+</select>
+        
+        
+         <p>Adrress:<textarea></textarea></p>
+         <select>
+            <option>Erode</option>
+            <option>Coimbatore</option>
+            <option>Tiruppur</option>
+            <option>Perundurai</option>
+         </select>
+         <p>Choose your rating</p>
+         <select>
+            <option value="1">1⭐</option> <!-- Keywords: option, value – Option for rating 1 -->
+            <option value="2">2⭐</option> <!-- Keywords: option, value – Option for rating 2 -->
+            <option value="3">3⭐</option> <!-- Keywords: option, value – Option for rating 3 -->
+            <option value="4">4⭐</option> <!-- Keywords: option, value – Option for rating 4 -->
+            <option value="5">5⭐</option> <!-- Keywords: option, value – Option for rating 5 -->
+         </select>
+         <p>Thank you 😊</p>
+        <!-- Submit Button -->
+        <button class="b" type="submit">SUBMIT</button> <!-- Keywords: button, type="submit", class -->
+
+    </form> <!-- End of form -->
+</body> 
+
+</html> 
+
